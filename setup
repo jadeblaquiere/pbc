@@ -19,3 +19,6 @@ autoconf
 if test -f config.status; then
     sh config.status
 fi
+
+echo "recommended configuruation:"
+echo "sh ./configure --prefix=/usr --enable-shared"
