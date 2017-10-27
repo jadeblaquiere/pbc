@@ -26,7 +26,7 @@ ifeq ($(PLATFORM),win32)
   pbc_getline_objs := pbc/pbc_getline.o
 else
   # tcmalloc is faster than normal malloc.
-  LDLIBS := $(LDLIBS) -ltcmalloc
+  # LDLIBS := $(LDLIBS) -ltcmalloc
   pbc_getline_objs := pbc/pbc_getline.readline.o
   pbc_pbc_libs := -lreadline
 endif
@@ -126,6 +126,8 @@ endif
 
 depend:
 	makedepend -fsimple.make -Iinclude -Y -- $(CFLAGS) -- $(srcs) 2> /dev/null
+
+pbc/pbc.o: pbc/lex.yy.c pbc/parser.tab.h
 
 # DO NOT DELETE
 
